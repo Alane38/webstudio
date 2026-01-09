@@ -141,6 +141,13 @@ export const domainRouter = router({
         });
 
         if (input.destination === "static" && result.success) {
+          // Update build status to PUBLISHED for static exports
+          // This is done here because static export is generated on-demand when downloaded
+          await ctx.postgrest.client
+            .from("Build")
+            .update({ publishStatus: "PUBLISHED" })
+            .eq("id", build.id);
+
           return { success: true as const, name };
         }
 

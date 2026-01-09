@@ -13,8 +13,8 @@ services:
       # postgresql://user:pass@localhost:5432/webstudio
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: webstudio
-      POSTGRES_USER: user
+      POSTGRES_USER: postgres
     volumes:
-      - db:/var/lib/postgresql/data
+      - db:/var/lib/postgresql
     ports:
       - ${PGPORT:-5432}:5432

@@ -1,0 +1,18 @@
+Donner ça a claude:
+ Récap pour démarrer Webstudio
+
+  # 1. PostgreSQL (Docker)
+  cd /Users/alane/Downloads/webstudio/apps/builder && docker compose up -d
+
+  # 2. PostgREST
+  PGRST_DB_URI="postgresql://postgres:pass@localhost/webstudio" \
+  PGRST_DB_SCHEMAS="public" \
+  PGRST_DB_ANON_ROLE="anon" \
+  PGRST_JWT_SECRET="jwtsecretjwtsecretjwtsecretjwtsecretjwtsecretjwtsecretjwtsecretjwtsecretjwtsecretjwtsecretjwtsecretjwtsecret" \
+  PGRST_SERVER_PORT=3000 \
+  postgrest &
+
+  # 3. Serveur dev
+  cd /Users/alane/Downloads/webstudio && pnpm dev
+
+  URL : https://vite.wstd.dev:5173/

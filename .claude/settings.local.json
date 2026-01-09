@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --version:*)",
+      "Bash(docker:*)",
+      "Bash(psql:*)",
+      "Bash(brew services list:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(xargs ls:*)",
+      "Bash(while ! docker info)",
+      "Bash(do sleep 2)",
+      "Bash(lsof:*)",
+      "Bash(pnpm migrations:*)",
+      "Bash(pnpm --filter=@webstudio-is/prisma-client migrations migrate:*)",
+      "Bash(PGPASSWORD=pass psql:*)",
+      "Bash(brew services stop:*)",
+      "Bash(brew install:*)",
+      "Bash(mkcert -install:*)",
+      "Read(./*)"
+    ]
+  }
+}

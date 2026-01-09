@@ -1,0 +1,41 @@
+{
+  "name": "@webstudio-is/static-export",
+  "version": "0.0.0-webstudio-version",
+  "description": "Static site generator for Webstudio projects",
+  "author": "Webstudio <github@webstudio.is>",
+  "homepage": "https://webstudio.is",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": {
+      "webstudio": "./src/index.ts",
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib/*",
+    "!*.{test,stories}.*"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "build": "rm -rf lib && esbuild src/index.ts --outdir=lib --bundle --format=esm --packages=external",
+    "dts": "tsc --project tsconfig.dts.json"
+  },
+  "dependencies": {
+    "@webstudio-is/css-engine": "workspace:*",
+    "@webstudio-is/react-sdk": "workspace:*",
+    "@webstudio-is/sdk": "workspace:*",
+    "@webstudio-is/sdk-components-react": "workspace:*",
+    "@webstudio-is/sdk-components-animation": "workspace:*",
+    "@webstudio-is/sdk-components-react-radix": "workspace:*",
+    "change-case": "^5.4.4",
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "@webstudio-is/tsconfig": "workspace:*",
+    "vitest": "^3.1.2"
+  }
+}

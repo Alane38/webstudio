@@ -33,7 +33,16 @@ export const deploymentRouter = router({
   publish: procedure
     .input(PublishInput)
     .output(Output)
-    .mutation(() => {
+    .mutation(({ input }) => {
+      // Static export is handled by the download route (/cgi/static/ssg/$name)
+      // which generates the ZIP on-demand when the user downloads it
+      if (input.destination === "static") {
+        return {
+          success: true,
+        };
+      }
+
+      // SaaS deployment is not implemented in local mode
       return {
         success: false,
         error: "NOT_IMPLEMENTED",
